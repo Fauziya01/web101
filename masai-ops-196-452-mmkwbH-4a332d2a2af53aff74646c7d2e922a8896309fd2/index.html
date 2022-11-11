@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign up Page</title>
+  <style>
+      /* Write all necessery css here  */
+      *{
+        font-family: system-ui;
+      
+      }
+      #signup{
+        border: 1px solid blue;
+         width:29%;
+         margin: auto;
+         margin-top: 100px;
+         
+         padding-right: 30px ;
+         padding-left: 30px ;
+         padding-bottom: 50px;
+       
+      }
+      h1{
+        text-align: center;
+      }
+      form{
+        font-size: 15px;
+        font-weight: bold;
+        color: rgb(109, 103, 103);
+      }
+    input{
+        padding: 11px 112px;
+  
+        border-radius: 5px;
+        border: 1px solid ;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        text-align: start;
+        font-weight: lighter;
+        font-size: 15px;
+        color: rgb(228, 222, 222);
+        
+      }
+      #submit{
+        padding: 11px 175px;
+        color: black;
+        border: 1px solid;
+      }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <a href="./index.html">Signup</a>
+    <a href="./signin.html">Signin</a>
+  </div>
+  <div id="signup">
+  <h1>signup</h1>
+    <form>
+      <label for="name" >Full name</label><br>
+      <input type="text" id="name" placeholder="Enter your full name"><br>
+      <label for="email">Email</label><br>
+      <input type="email" id="email" placeholder="Enter email"><br>
+      <label for="password">Password</label><br>
+      <input type="password"  id="password"  placeholder="Enter password"><br>
+      <input type="submit" value="submit" id="submit" />
+    </form>
+
+    
+    
+  </div>
+</body>
+<script>
+  
+  document.querySelector("form").addEventListener("submit",getdata)
+  let arr=JSON.parse(localStorage.getItem("sigup"))||[]
+  function getdata(event){
+    event.preventDefault();
+    let name=document.querySelector("#name").value;
+    let email=document.querySelector("#email").value;
+    let password=document.querySelector("#password").value;
+    let obj={
+      name,
+      email,
+      password,
+    }
+    arr.push(obj);
+    localStorage.setItem("sigup",JSON.stringify(arr));
+    window.location.href="signin.html"
+  }
+</script>
+
+</html>
