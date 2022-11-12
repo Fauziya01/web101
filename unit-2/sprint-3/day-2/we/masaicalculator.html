@@ -1,0 +1,126 @@
+<html>
+
+<head>
+    <title>Masai Calculator</title>
+</head>
+<style>
+    h1 {
+        text-align: center;
+        color: teal;
+    }
+
+    .calculator {
+        width: 250px;
+        height: 300px;
+        border: 1px solid white;
+        margin: auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    }
+
+    #keyboard {
+        width: 200px;
+        height: 200px;
+        border: 1px solid white;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: auto;
+    }
+
+    #keyboard>div {
+        width: 22%;
+        height: 20%;
+        border: 0px solid white;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+    #keyboard>div:hover{
+        background-color: teal;
+    }
+
+    #display {
+
+        width: 80%;
+        height: 40px;
+        margin: auto;
+        margin-bottom: 20px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    #red {
+        color: white;
+        background-color: red;
+    }
+
+    .white {
+        color: white;
+        background-color: black;
+    }
+</style>
+
+<body>
+
+    <h1>Masai Calculator</h1>
+
+    <div class="calculator">
+        <div>
+            <div id="display"></div>
+            <div id="keyboard">
+                <div> 1</div>
+                <div>2</div>
+                <div>3</div>
+                <div class="white">+</div>
+                <div> 4 </div>
+                <div>5</div>
+                <div>6</div>
+               <div class="white">-</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div class="white">*</div>
+                <div id="red">C</div>
+                <div>0</div>
+                <div class="white">=</div>
+                <div class="white">/</div>
+               
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>
+<script>
+   let keys=document.querySelectorAll("#keyboard>div")
+   let bag="";
+   for(let i=0;i<keys.length;i++){
+    keys[i].addEventListener("click",myfun)
+   
+   }
+    function myfun(e){
+        let targetnumber=e.target.innerText;
+         
+         if(targetnumber=="C"){
+            bag="";
+            document.querySelector("#display").innerText=" ";
+         }else if (targetnumber=="="){
+            let res =eval(bag);
+            document.querySelector("#display").innerText=res;
+            bag="";
+         }
+         
+        else{
+            bag=bag+targetnumber;
+            document.querySelector("#display").innerText=bag;
+        }
+    }
+        
+    
+</script>

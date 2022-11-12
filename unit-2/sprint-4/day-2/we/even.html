@@ -1,0 +1,15 @@
+<script>
+
+    let x=8;
+    let evenpromise=new Promise((resolve,reject)=>{
+        if(x%2===0){
+            resolve("x is even");
+        }else{
+            reject("x is odd")
+        }
+    })
+    console.log(evenpromise)
+    evenpromise
+    .then((fromresolve)=>console.log(fromresolve))
+   .catch((fromreject)=>console.log(fromreject))
+</script>

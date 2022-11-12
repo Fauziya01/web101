@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <title>Coffee grid</title>
+  </head>
+<styLe>
+    #coffee{
+        width: 80%;
+        margin: auto;
+     display: grid;
+       grid-template-columns: repeat(3,1fr);
+        /* grid-template-rows: repeat(3,100px); */
+        gap:30px;
+        /* font-family: sans-serif; */
+    }
+    #coffee>div{
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding-left: 25px;
+        border-radius: 20px;
+
+    }
+    #coffee>div>h2{
+        word-spacing: 50px;
+        
+    }
+    #coffee>div>h2>a{
+        color: rgb(182, 129, 60);
+    }
+   /* Medium Screen */
+   @media only screen and (min-width: 500px) and (max-width: 768px) {
+    #coffee{display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+   }
+
+   /* Small Screen */
+   @media only screen and (min-width: 320px) and (max-width: 499px) {
+    #coffee{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+   }
+</styLe>
+<body>
+    <div id="coffee">
+        
+        <div>
+            <h2>Cappuccino <a>$49</a></h2>
+            <p>Lorem ipsum dolor sit amet consectetur<br> adipisicing elit. Consei omnis!</p>
+        </div>
+        <div>
+            <h2>Cappuccino <a>$49</a></h2>
+            <p>Lorem ipsum dolor sit amet consectetur<br> adipisicing elit. Consei omnis!</p>
+        </div>
+        <div>
+            <h2>Cappuccino <a>$49</a></h2>
+            <p>Lorem ipsum dolor sit amet consectetur<br> adipisicing elit. Consei omnis!</p>
+        </div>
+        <div>
+            <h2>Cappuccino <a>$49</a></h2>
+            <p>Lorem ipsum dolor sit amet consectetur<br> adipisicing elit. Consei omnis!</p>
+        </div>
+        <div>
+            <h2>Cappuccino <a>$49</a></h2>
+            <p>Lorem ipsum dolor sit amet consectetur<br> adipisicing elit. Consei omnis!</p>
+        </div>
+        <div>
+            <h2>Cappuccino <a>$49</a></h2>
+            <p>Lorem ipsum dolor sit amet consectetur<br> adipisicing elit. Consei omnis!</p>
+        </div>
+        <div>
+            <h2>Cappuccino <a>$49</a></h2>
+            <p>Lorem ipsum dolor sit amet consectetur<br> adipisicing elit. Consei omnis!</p>
+        </div>
+        <div>
+            <h2>Cappuccino <a>$49</a></h2>
+            <p>Lorem ipsum dolor sit amet consectetur<br> adipisicing elit. Consei omnis!</p>
+        </div>
+        <div>
+            <h2>Cappuccino <a>$49</a></h2>
+            <p>Lorem ipsum dolor sit amet consectetur<br> adipisicing elit. Consei omnis!</p>
+        </div>
+    </div>
+  
+</body>
+</html>

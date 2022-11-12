@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>
+            practise
+        </title>
+    </head>
+    <body>
+        <h1></h1>
+        <button>likeme</button>
+    </body>
+</html>
+<script>
+  document.querySelector("button").addEventListener("click",likeme)
+  let count=localStorage.getItem("like")||0;
+//   if(localStorage.getItem("like")==null){
+//         count=0;
+//     }else{
+//         count=localStorage.getItem("like")
+//     }
+ 
+  console.log(count)
+  document.querySelector("h1").innerText=count;
+  function likeme(){
+    count++;
+    document.querySelector("h1").innerText=count;
+    localStorage.setItem("like",count);
+    }
+   
+    
+  
+</script>

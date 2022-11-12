@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>
+            random_bg
+        </title>
+    </head>
+    <body>
+        <h1>Resize Window</h1>
+        <button id="openbtn">Open Button</button>
+        <button id="resizebtn">Resize Button</button>
+    </body>
+</html>
+<script>
+    document.getElementById("openbtn").addEventListener("resize",openwin);
+    document.getElementById("resizebtn").addEventListener("click",resizewin)
+    function openwin(){
+        newWindow= window.open("_blank","width=300,height=200")
+        newWindow.document.write("mein window hu")
+        newWindow
+        
+        newWindow.focus();
+    }
+    function resizewin(){
+       newWindow.resizeBy(200,200)
+    newWindow.focus();
+    }
+
+
+</script>

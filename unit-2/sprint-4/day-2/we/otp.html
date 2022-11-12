@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>otp</title>
+    </head>
+    <body>
+        <input type="text" id="opt" >
+        <button id="submit">Submit</button>
+    </body>
+</html>
+<script>
+    document.getElementById("submit").addEventListener("click",myfun)
+    function myfun(){
+        let opt = document.querySelector("#opt").value
+        let promise= new Promise ((res,rej)=>{
+            if(opt=="1234"){
+                res("correct opt");
+            }else{
+                rej("Incorrect opt");
+            }
+        })
+        promise
+    .then((fromres)=>alert("correct otp"))
+    .catch((fromrej)=>alert("Incorrect otp"))
+    }
+    
+</script>

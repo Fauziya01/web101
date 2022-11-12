@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>U2C3</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- Dont make any changes here -->
+    <h1>Favourite</h1>
+
+
+    <table>
+        <!-- Dont change order of columns -->
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Priority</th>
+            <th>delete</th>
+          </tr>
+        </thead>
+        <tbody>
+        <!-- Append your output to tbody -->
+        </tbody>
+      </table>
+    </body>
+    </html>
+    <script>
+  let fav= JSON.parse(localStorage.getItem("favourite"))
+  displaytable(fav)
+  console.log(fav)
+  function displaytable(fav){
+    document.querySelector("tbody").innerHTML=" ";
+    fav.forEach(function(elem,i){
+        let row=document.createElement("tr");
+    let td1=document.createElement("td");
+    td1.innerText=elem.taskName;
+    let td2=document.createElement("td");
+    td2.innerText=elem.taskPriority;
+    if(elem.taskPriority=="High"){
+        td2.style.backgroundColor="green";
+    }else{
+        td2.style.backgroundColor="red";
+    }
+    let td3=document.createElement("td");
+    td3.innerText="delete";
+    td3.addEventListener("click",function(){
+        deletefav(elem,i)
+    })
+    row.append(td1,td2,td3);
+    document.querySelector("tbody").append(row);
+    
+    })
+  
+  }
+
+  function deletefav(elem,i){
+    fav.splice(i,1);
+    console.log(fav);
+    displaytable(fav);
+    localStorage.setItem("favourite",JSON.stringify(fav))
+  }
+
+
+    </script>

@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Clock</title>
+    </head>
+    <style>
+        #display{
+            display: flex;
+            justify-content: center;
+            height:100vh;
+            align-items: center;
+            background-color: rgb(173, 226, 120);
+        }
+        #display>div{
+            padding: 30px;
+            margin: 20px;
+            color:white;
+            background-color: rgb(143, 214, 72);
+            font-size: 50px;
+        }
+        span{
+            color:yellowgreen;
+         font-size: 50px;
+        }
+    </style>
+    <body>
+        <div id="display">
+            <div id="hour">16</div>
+            <span>:</span>
+            <div id="min">24</div>
+            <span>:</span>
+            <div id="sec">17</div>
+            <div id="ampm">am</div>
+        </div>
+    </body>
+</html>
+
+<script>
+  function clock(){
+    // let date= new Date();
+    // let hours=date.getHours();
+    // let min=date.getMinutes();
+    // let sec = date.getSeconds();
+    // console.log(sec);
+    let date=new Date();
+    let hours=date.getHours();
+    let min = date.getMinutes();
+    let sec=date.getSeconds();
+    let half=""
+    if(hours>=12){
+        half="PM";
+    }else{
+        half="AM";
+    }
+
+    document.getElementById("hour").innerText=hours;
+    document.getElementById("min").innerText=min;
+    document.getElementById("sec").innerText=sec;
+    document.getElementById("ampm").innerText=half;
+    setInterval(clock,1000);
+
+  }
+    clock();
+    
+</script>

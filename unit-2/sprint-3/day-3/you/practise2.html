@@ -1,0 +1,41 @@
+<!-- <html lang="en">
+<head>
+<title>Document</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+// Step1: Creating h1 tag
+let heading = document.createElement("h1");
+// Step2: Adding innerText
+heading.innerText = "Masai School";
+heading.setAttribute("id","container")
+// Step3: Appending to body
+document.querySelector("body").append(heading)
+let button = document.createElement("button");
+button.innerText="submit"
+button.setAttribute("id","container")
+document.querySelector("body").append(button)
+button.style.color="red"
+console.log(heading)
+</script> -->
+
+
+
+
+
+
+<html>
+<body>
+<h2>The getAttribute() Method</h2>
+<button id="myButton">BUTTON</button>
+<p>The value of the "id" attribute of the button is:</p>
+<p id="demo"></p>
+</body>
+</html>
+<script>
+const myButton = document.getElementById("myButton");
+let out = myButton.getAttribute("id");
+document.getElementById("demo").innerText = out;
+</script>

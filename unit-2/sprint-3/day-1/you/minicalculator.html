@@ -1,0 +1,106 @@
+<html>
+
+<head>
+    <title>Mini calculator</title>
+</head>
+<style>
+    .nav {
+        width: 600px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        background-color: grey;
+        border-radius:40px;
+        margin-top: 180px;
+    }
+
+    .navchild {
+
+        display: flex;
+        flex-direction: column;
+
+    }
+
+
+    .display {
+        width: 150px;
+        border: 1px solid green;
+    }
+
+    button {
+        border: 0px solid;
+        padding: 10px 20px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius: 10px;;
+    
+    }
+.button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+}
+</style>
+
+<body>
+    <div class="nav">
+
+        <h1 id="display">Result</h1>
+
+        <div class="navchild">
+            <div><input type="number" placeholder="num1" id="input1"></div>
+            <div><input type="number" placeholder="num2" id="input2"></div>
+        </div>
+        <br>
+        <div class="button">
+            <button onclick="add()">Add</button>
+            <button onclick="sub()">Subtract</button>
+            <button onclick="mul()">Multiply</button>
+            <button onclick="div()">Divide</button>
+            <button onclick="resetForm()"> reset</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    let box = document.querySelectorAll(input)
+    for (let i = 0; i < box.length; i++) {
+        box[i].style.height = "70px"
+    }
+    function add() {
+        let number1 = Number(document.getElementById("input1").value);
+        let number2 = Number(document.getElementById("input2").value);
+        let addition = number1 + number2;
+        document.getElementById("display").innerText = addition;
+        console.log(number1 + number2)
+    }
+    function sub() {
+        let number1 = Number(document.getElementById("input1").value);
+        let number2 = Number(document.getElementById("input2").value);
+        let subtraction = number1 - number2;
+        document.getElementById("display").innerText = subtraction;
+        console.log(number1 + number2)
+    }
+    function mul() {
+        let number1 = Number(document.getElementById("input1").value);
+        let number2 = Number(document.getElementById("input2").value);
+        let multiplication = number1 * number2;
+        document.getElementById("display").innerText = multiplication;
+        console.log(number1 + number2)
+    }
+    function div() {
+        let number1 = Number(document.getElementById("input1").value);
+        let number2 = Number(document.getElementById("input2").value);
+        let division = number1 / number2;
+        document.getElementById("display").innerText = division;
+        console.log(number1 + number2)
+    }
+    function resetForm() {
+        let inputs = document.querySelectorAll("input");
+        inputs.forEach(input => input.value = " ")
+    }
+</script>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+        
+    <style>
+        
+        .nav1{
+            
+            display:grid;
+            /* grid-template-columns: repeat(4,1fr); */
+            grid-template-areas: 
+            "nav nav nav nav"
+           " red green blue grey";
+           gap:10px;
+           
+        } 
+        /* }small screen */
+        
+         .nav1>div:nth-child(1){
+            background-color: yellow;
+            grid-area: nav;
+         }
+        .nav1>div:nth-child(2){
+            background-color: red;
+           color: grey;
+           grid-area: red;
+        }
+        .nav1>div:nth-child(3){
+            background-color: rgb(15, 199, 15);
+            color: grey;
+            grid-area: green;
+        }
+        .nav1>div:nth-child(4){
+            background-color: rgb(90, 90, 223);
+            color: grey;
+            grid-area: blue;
+        }
+        .nav1>div:nth-child(5){
+            background-color: grey;
+            color: rgb(199, 188, 188);
+            grid-area: grey;
+        }
+        .nav1>div:nth-child(1)~div{
+            height: 100px;
+        }
+        @media all and (min-width: 100px)and (max-width: 600px){
+            .nav1{
+              grid-template-areas: 
+             "nav "
+             "red"
+             "green"
+             "blue "
+             "grey";
+           }
+        }
+        /* medium screen */
+        @media all and (min-width: 601px)and (max-width: 900px){
+            
+            .nav1{
+                grid-template-areas: 
+             "nav nav"
+             "red green"
+             "blue grey";
+        
+            }
+           
+        }
+    </style>
+    <body>
+        
+        <div class="nav1">
+            <div>
+                Navigation
+            </div>
+         <div>Box1</div>
+        <div>Box2</div>
+        <div>Box3</div>
+        <div>Box4</div>
+    </div>
+       
+    </body>
+</htm>

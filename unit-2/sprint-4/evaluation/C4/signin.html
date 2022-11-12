@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in Page</title>
+</head>
+<style>
+  *{
+        font-family: system-ui;
+      
+      }
+      #signin{
+        border: 1px solid blue;
+         width:29%;
+         margin: auto;
+         margin-top: 100px;
+         
+         padding-right: 30px ;
+         padding-left: 30px ;
+         padding-bottom: 50px;
+       
+      }
+      h1{
+        text-align: center;
+      }
+      form{
+        font-size: 15px;
+        font-weight: bold;
+        color: rgb(109, 103, 103);
+      }
+    input{
+        padding: 11px 112px;
+  
+        border-radius: 5px;
+        border: 1px solid ;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        text-align: start;
+        font-weight: lighter;
+        font-size: 15px;
+        color: rgb(228, 222, 222);
+        
+      }
+      #submit{
+        padding: 11px 175px;
+        color: black;
+        border: 1px solid;
+      }
+</style>
+<body>
+    <div class="nav">
+        <a href="./index.html">Signup</a>
+        <a href="./signin.html">Signin</a>
+      </div>
+      <div id="signin">
+        <h1>Please Enter Your Details</h1>
+        <form>
+          <input type="email" id="email" placeholder="Enter email">
+          <input type="password"  id="password" placeholder="Enter password">
+          <input type="submit" value="Submit" id="submit"/>
+        </form>
+      </div>
+</body>
+<script>
+  let data=JSON.parse(localStorage.getItem("singup"))||[];
+  
+    document.querySelector("form").addEventListener("submit",checkdata)
+     
+    function checkdata(event){
+      event.preventDefault();
+      let email=document.querySelector("#email").value
+    let password=document.querySelector("#password").value
+
+    data.forEach(function(elem){
+      let email1=elem.email;
+      let password1=elem.password;
+      if(email==email1){
+        if(password==password1){
+          alert("sign in sucessfull");
+        }else{
+          console.log("wrong password")
+        }
+      }else{
+        console.log("wrong email")
+      }
+    })
+     }
+</script>
+</html>

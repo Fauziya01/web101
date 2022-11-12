@@ -1,0 +1,99 @@
+<html>
+    <head><title>Area-2</title></head>
+    <style>
+     
+    .container{
+        height:100%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: repeat(2,1fr);
+        gap:30px;
+        font-size: 70px;
+       
+       
+        /* grid-template-rows: repeat(3,100px); */
+        
+       /* grid-template-areas: 
+       "rd blu oran"
+       "tal grn   " */
+       
+    }
+    
+    .container>div:nth-child(1){
+        background-color: grey;
+        
+        color:white;
+        grid-column-start: 1;
+       grid-column-end: 3;
+       grid-row-end: 2;
+       grid-row-start: 1;
+       border-radius: 15px;
+       
+       
+       /* grid-area: rd; */
+
+    }
+    .container>div:nth-child(2){
+        background-color: grey;
+        color:white;
+        grid-column-start: 3;
+       grid-column-end: 4;
+      
+       grid-row-start: 1;
+       grid-row-end: 3;
+       
+       border-radius: 15px;
+       
+       /* grid-area: blu; */
+    }
+    .container>div:nth-child(3){
+        background-color: grey;
+        color:white;
+        /* grid-area: oran; */
+        grid-column-start:1 ;
+       grid-column-end: 2;
+       grid-row-start: 2;
+       grid-row-end: 3;
+
+       border-radius: 15px;
+    }
+    .container>div:nth-child(4){
+        background-color: grey;
+        color:white;
+        /* grid-area: tal; */
+        grid-column-start:2 ;
+       grid-column-end: 3;
+       grid-row-start: 2;
+       grid-row-end: 3;
+       border-radius: 15px;
+       
+    }
+    .container>div:nth-child(5){
+        background-color:grey;
+        color:white;
+        /* grid-area: grn; */
+        grid-column-start:4;
+       grid-column-end: 5;
+       grid-row-start: 3;
+       grid-row-end: 1;
+       border-radius: 15px;
+
+    }
+
+    </style>
+    <body>
+        <div class="nav">
+        <div class="container">
+          
+         <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>D</div>
+            <div>E</div>
+            
+            
+        </div>
+    </div>
+    </body>
+</html>

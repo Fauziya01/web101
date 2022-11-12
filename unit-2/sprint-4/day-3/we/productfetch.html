@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <title>products</title>
+    </head>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+            text-align: center;
+        }
+        #container>div{
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+        }
+        #container>div>img{
+            width:150px;
+        }
+        input{
+            padding: 10px 20px;
+            width: 300px;
+        }
+    </style>
+    <body>
+        <input oninput="search()" type="text" placeholder="search"/>
+        <select onchange="give()">
+            <option value="LTH">LTH</option>
+            <option value="HTL">HTL</option>
+          </select>
+        <div id="container"></div>
+    </body>
+</html>
+<script>
+    let cartitem=JSON.parse(localStorage.getItem("cartproduct"))||[]
+    let bag=[];
+    let url="https://fakestoreapi.com/products";
+    async function getData(){
+        try{
+            let res= await fetch(url)
+        let out= await res.json();
+       
+       data=out;
+       displaytable(out);
+    }
+
+        catch (err){
+            alert(err);
+        }
+        
+    }
+    getData();
+
+    function search(){
+        
+        let search=document.querySelector("input").value;
+  
+    let newdata=bag.filter(function(elem){
+        return elem.title==search;
+    })
+    console.log(newdata);
+ displaytable(newdata); 
+    }
+    function give(){
+      let sortedvalue=document.querySelector("select").value;
+     
+      if(sortedvalue =="LTH"){
+         data.sort((a,b)=>a.price-b.price);
+      }
+      if (sortedvalue=="HTL"){
+      data.sort((a,b)=>b.price-a.price);
+      }
+      console.log(data);
+      displaytable(data);
+    }
+   
+
+    function displaytable(out){
+        document.querySelector("#container").innerHTML=""
+        out.forEach((elem)=>{
+          let div= document.createElement("div");
+        let img=document.createElement("img");
+        img.setAttribute("src",elem.image)
+        let name=document.createElement("h1");
+        name.innerText=elem.title;
+        let dis=document.createElement("p");
+        dis.innerText=elem.description;
+        let price=document.createElement("h3");
+        price.innerText=elem.price;
+        let rate=document.createElement("h3");
+        rate.innerText=elem.rating.rate;
+        let cart=document.createElement("button");
+        cart.innerText="Add to Cart";
+       cart.addEventListener("click",function(){
+        console.log("hi")
+        cartitem.push(elem)
+        localStorage.setItem("cartproduct",JSON.stringify(cartitem));
+       }) 
+
+        div.append(img,name,dis,price,rate,cart)
+        
+        document.querySelector("#container").append(div);
+        })
+      
+    }
+</script>

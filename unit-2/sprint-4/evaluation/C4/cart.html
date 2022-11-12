@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart Page</title>
+    <style>
+      /* Write all necessery css here  */
+      .nav{
+        border: 1px solid white;
+        display: flex;
+       align-items: center;
+       justify-content: space-evenly;
+        margin: auto;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+      #sel{
+        text-align: center;
+        margin: auto;
+      }
+      #filter{
+     padding: 10px 15px;
+     margin:20px 20px;
+      }
+      #cart-container{
+        width:100%;
+        border: 1px solid white;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 15px;
+        /* text-align: center; */
+        
+      }
+      #cart-container>div{
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding:10px 20px;
+       
+      }
+      button{
+        border: 0px solid;
+        border-radius: 5px;
+        padding: 10px 15px;
+        background-color: rgb(0, 140, 255);
+      color: white;
+      }
+      #head{
+        display: flex;
+        justify-content: flex-end;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <h1>Masai E-Commerce</h1>
+      <a href="./index.html">Home</a>
+      <a href="./cart.html">Cart</a>
+    </div>
+    <div id="head"><h1 id="total">Your Total cart Price is:- <span id="cart-total">0</span></h1></div>
+    <div id="cart-container">
+      <!-- Here Append All the cart Products  -->
+    </div>
+  </body>
+  <script>
+    // Write all necessery JS here 
+    let cartpro=JSON.parse(localStorage.getItem("cart"))||[];
+    let total=cartpro.reduce((acc,elem)=>acc+elem.price,0)
+    document.querySelector("#cart-total").innerText=total;
+
+    displaytable(cartpro);
+
+    function displaytable(cartpro){
+      document.querySelector("#cart-container").innerHTML=" ";
+      
+    cartpro.forEach(function(elem){
+      let div1=document.createElement("div");
+       console.log("hi")
+       let imag=document.createElement("img");
+        imag.setAttribute("src",elem.img.png);
+        let name=document.createElement("h2");
+        name.innerText=elem.brand;
+        let price=document.createElement("h3");
+        price.innerText=elem.price;
+        let desc=document.createElement("p");
+        desc.innerText=elem.details;
+        let cate=document.createElement("p");
+        cate.innerText=elem.category;
+        let inc=document.createElement("button");
+        inc.innerText="+";
+        let quantity=document.createElement("span");
+        quantity.innerText=0;
+        let dec=document.createElement("button");
+        dec.innerText="-";
+        
+        let btn=document.createElement("button");
+        btn.innerText="Remove";
+        btn.addEventListener("click",()=>{
+          deleteproduct(elem);
+        })
+        
+        div1.append(imag,name,price,desc,cate,inc,quantity,dec,btn);
+        document.querySelector("#cart-container").append(div1);
+        function deleteproduct(elem){
+          cartpro.splice(elem,1)
+          localStorage.setItem("cart",JSON.stringify(cartpro))
+          displaytable(cartpro);
+        }
+      })
+      
+    }
+  </script>
+</html>

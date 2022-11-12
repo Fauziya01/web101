@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>
+            timer
+        </title>
+    </head>
+    <body>
+
+    </body>
+
+</html>
+<script>
+   
+    function waitPromise(time){
+        return new Promise((res,rej)=>{
+            setTimeout(function(){
+                res("Resolved");
+            },time)
+        })
+
+    }
+    console.log( waitPromise(3000));
+</script>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <style>
+      /* Write all necessery css here  */
+      .nav{
+        border: 1px solid white;
+        display: flex;
+       align-items: center;
+       justify-content: space-evenly;
+        margin: auto;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+      #sel{
+        text-align: center;
+        margin: auto;
+      }
+      #filter{
+     padding: 10px 15px;
+     margin:20px 20px;
+      }
+      #product-container{
+        width:100%;
+        border: 1px solid white;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 15px;
+       
+        
+      }
+      #product-container>div{
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding:10px 20px;
+      }
+      #product-container>div>img{
+        width: 90%;
+      }
+      button{
+        border: 0px solid;
+        border-radius: 5px;
+        padding: 10px 15px;
+        background-color: rgb(0, 140, 255);
+      color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="nav">
+      <h1>Masai E-Commerce</h1>
+      <a href="./index.html">Home</a>
+      <a href="./cart.html">Cart</a>
+    </div>
+    <div id="sel">
+      <select id="filter"  onchange="filt()">
+        <option value="">Filter By Category</option>
+        <option value="Laptop">Laptop</option>
+        <option value="Mobile">Mobile</option>
+        <option value="Speakers">Speakers</option>
+      </select>
+    </div>
+    <!-- Use this Select Tag for Filtering the Products  -->
+    
+    <div id="product-container">
+      <!-- Here Append All the Products  -->
+    </div>
+  </body>
+  <script>
+    // Write all necessery JS here 
+    let btnArr=JSON.parse(localStorage.getItem("cart"))||[]
+    let url="https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-tech-products";
+    async function getData(){
+      try{
+        let res= await fetch(url);
+      let  out= await res.json();
+      
+      console.log(out)
+      let info=out.data
+      bag=[...info];
+      console.log(info)
+      displaytable(info);
+      }
+      catch(err){
+        alert(err);
+      }
+     
+    }
+    getData();
+    function filt(){
+      let selected=document.querySelector("#filter").value;
+      let newdata= bag.filter((el)=>{
+        if(selected==""){
+          return bag;
+        }else{
+          return el.category==selected;  
+        }
+      
+      })
+      console.log(newdata);
+      displaytable(newdata);
+    }
+
+
+    function displaytable(info){
+      document.querySelector("#product-container").innerHTML=" ";
+      
+    info.forEach(function(elem){
+      let div1=document.createElement("div");
+       console.log("hi")
+       let imag=document.createElement("img");
+        imag.setAttribute("src",elem.img);
+        let name=document.createElement("h2");
+        name.innerText=elem.brand;
+        let price=document.createElement("h3");
+        price.innerText=elem.price;
+        let desc=document.createElement("p");
+        desc.innerText=elem.details;
+        let cate=document.createElement("p");
+        cate.innerText=elem.category;
+        let btn=document.createElement("button");
+        btn.innerText="Add To Cart";
+        btn.addEventListener("click",()=>{
+          
+              btnArr.push(elem);
+
+          console.log(btnArr)
+          localStorage.setItem("cart",JSON.stringify(btnArr))
+          alert("Product Added To Cart");
+           
+        
+          
+        })
+        
+        div1.append(imag,name,price,desc,cate,btn);
+        document.querySelector("#product-container").append(div1);
+      })
+      
+    }
+  </script>
+</html>

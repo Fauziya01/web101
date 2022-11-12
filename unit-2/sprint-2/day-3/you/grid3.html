@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title>Masai Calculator</title>
+    </head>
+    <style>
+    .container{
+        height:400px;
+        width:300px;
+        border:1px solid white;
+        margin: auto;
+        margin-top: 50px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    }
+    h1{
+        margin-top: 40px;
+        text-align: center;
+        color:rgb(52, 134, 134);
+    }
+    .nav{
+        display: grid;
+        grid-template-columns: repeat(4,50px);
+        grid-template-rows: repeat(5,50px);
+        gap:15px ;
+        background-color: white;
+        
+        margin-left: 30px;
+      
+        margin-top: 40px;
+       
+    }
+    .nav>div{
+       background-color: white;
+       border-bottom-left-radius: 5px;
+       border-bottom-right-radius: 5px;
+       border-top-left-radius:5px;
+       border-top-right-radius:5px;
+       justify-content: center;
+       text-align: center;
+     
+       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+       
+       /* margin-left: 10px; */
+    }
+    .nav>div>div>h1{
+        justify-content: center;
+    }
+    .nav>div:nth-child(1){
+        grid-column-start: 1;
+        grid-column-end: 5;
+    }
+    .nav>div:nth-child(5){
+        background-color: black;
+        color: white;
+       
+    }
+    .nav>div:nth-child(9){
+        background-color: black;
+        color: white;
+    }
+    .nav>div:nth-child(13){
+        background-color: black;
+        color: white;
+    }
+    .nav>div:nth-child(14){
+        background-color: red;
+        color: white;
+    }
+    .nav>div:nth-child(16){
+        background-color: black;
+        color: white;
+    }
+    .nav>div:nth-child(17){
+        background-color: black;
+        color: white;
+    }
+       </style>
+    <body>
+        <h1>Masai Calculator</h1>
+        <div class="container">
+           
+            <div
+                class="nav">
+                
+                <div></div>
+                <div><h3>1</h3></div>
+                <div><h3>2</h3></div>
+                <div><h3>3</h3></div>
+                <div ><h3>+</h3></div>
+                <div><h3>4</h3></div>
+                <div><h3>5</h3></div>
+                <div><h3>6</h3></div>
+                <div ><h3>-</h3></div>
+                <div><h3>7</h3></div>
+                <div><h3>8</h3></div>
+                <div><h3>9</h3></div>
+                <div ><h3>x</h3></div>
+                <div ><h3>C</h3></div>
+                <div><h3>0</h3></div>
+                <div ><h3>=</h3></div>
+                <div ><h3>/</h3></div>
+               
+            </div>
+        </div>
+    </body>
+</html>

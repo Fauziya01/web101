@@ -1,0 +1,13 @@
+<script>
+    let count=-1;
+    let promise=new Promise((resolve,reject)=>{
+        if(count>0){
+            resolve("Positive count")
+        }else{
+            reject("negative count")
+        }
+    })
+    console.log(promise)
+   // promise.then((fromresolve)=>console.log(fromresolve))
+    promise.catch((fromreject)=>console.log(fromreject))
+</script>

@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>
+            puppy
+        </title>
+    </head>
+    <body>
+        <div>
+            <img id="puppy"
+            src="https://www.petsworld.in/blog/wp-content/uploads/2015/09/Pitbull-Image-e1522758667875.jpg"
+            alt="bear"
+            />
+        </div>
+       
+        <button onclick="like()">like</button>
+        <p id="likeme"></p>
+        
+        <button onclick="dislike()">Dislike</button>
+        <p id="dislikeme"></p>
+    </body>
+</html>
+<script>
+    let count=localStorage.getItem("like")||0;
+    let count1=localStorage.getItem("dislike")||0;
+  function like(){
+    count++;
+    document.querySelector("#likeme").innerText=count
+    localStorage.setItem("like",count)
+    console.log(count)
+  }
+function dislike(){
+    count1--;
+    document.querySelector("#dislikeme").innerText=count1
+    localStorage.setItem("dislike",count1)
+    console.log(count1)
+}
+//   let count=localStorage.getItem("like")||0;
+// //   if(localStorage.getItem("like")==null){
+// //         count=0;
+// //     }else{
+// //         count=localStorage.getItem("like")
+// //     }
+ 
+//   console.log(count)
+//   document.querySelector("h1").innerText=count;
+//   function likeme(){
+//     count++;
+//     document.querySelector("h1").innerText=count;
+//     localStorage.setItem("like",count);
+//     }
+   
+    
+  
+</script>
